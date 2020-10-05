@@ -1,0 +1,70 @@
+/*------------------------------------*\
+  # TYPOGRAPHY
+\*------------------------------------*/
+
+/* @font-face declarations */
+
+@font-face {
+    font-family: 'ManropeVariable';
+    src: url('../woff/manrope[wght].ttf') format("truetype-variations");
+    font-weight: 1 999;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../woff/manrope-light.woff2') format('woff2'),
+         url('../woff/manrope-light.woff') format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('../woff/manrope-semibold.woff2') format('woff2'),
+         url('../woff/manrope-semibold.woff') format('woff');
+    font-weight: 600;
+}
+
+/* General Styles */
+
+body {
+    font-family: $font-family;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga" 1;
+
+    @supports (font-variation-settings: normal) {
+        font-family: $font-family--variable;
+        font-variation-settings: "wght" 300;
+    }
+
+    @supports (font-variant-ligatures: discretionary-ligatures) {
+        font-feature-settings: normal;
+        font-variant-ligatures: discretionary-ligatures;
+    }
+
+    // Massive thanks to CSS Tricks for this!
+    @include fluid-type($min-width, $max-width, $base_font-size, $max_font-size);
+}
+
+/* Vertical Rhythm */
+h1, h2, h3, h4, h5, h6, p {
+     margin-bottom: $rhythm;
+}
+
+/* Make headers semi-bold */
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 600;
+    font-variation-settings: "wght" 600;
+}
+
+a {
+    color: var(--site__txt-color);
+}
+
+/* `font-size` helper classes */
+small,  .t-sm  { @include type-setting('sm'); }
+p,      .t-nm  { @include type-setting('nm'); }
+h4,     .t-md  { @include type-setting('md'); }
+h3,     .t-lg  { @include type-setting('lg'); }
+h2,     .t-xl  { @include type-setting('xl'); }
+h1,     .t-xxl { @include type-setting('xxl'); }

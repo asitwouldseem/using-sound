@@ -8,11 +8,50 @@
     <title>Hello World</title>
 
     <link rel="author" href="/humans.txt">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/dist/css/main.css">
 </head>
 
 <body itemscope itemtype="https://schema.org/WebPage">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <nav class="skip-links">
+        <a href="#main">Skip to content</a>
+        <a href="#js-navToggle">Skip to main navigation</a>
+    </nav>
+
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="site-header__logo">
+                <a href="{{ siteUrl }}">
+                    <img class="logo-img" src="" alt="Using Sound">
+                </a>
+            </div>
+
+            <div class="site-header__navigation">
+                <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+                    <ul class="nav">
+                        {% for i in 0..1 %}
+                            <li class="nav__item t-sm">
+                                <a class="nav__link" href="#" itemprop="url">
+                                    <svg class="gly">
+                                        <use xlink:href="/dist/img/glyphs.svg#link"/>
+                                    </svg>
+
+                                    <span class="text">Page Title</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="module">
+                <div class="inner-wrapper">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script async src=""></script>
 </body>

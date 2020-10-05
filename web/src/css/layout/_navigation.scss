@@ -1,0 +1,37 @@
+/*------------------------------------*\
+  # SITE NAVIGATION
+\*------------------------------------*/
+
+/* General Styles */
+.nav {
+    @include reset-list;
+}
+
+.nav__link {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+
+    }
+}
+
+/* Main Navigation */
+.site-header__navigation {
+    .nav__item {
+        display: inline;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* Some breathing space between icon and text */
+    .text {
+        padding: 0 0.5rem 0 0.5rem;
+    }
+
+    .nav__link {
+        color: var(--site__txt-color);
+    }
+}
+
