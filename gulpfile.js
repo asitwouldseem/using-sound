@@ -9,12 +9,11 @@ const $ = require('gulp-load-plugins')({
       scope: ['devDependencies']
 });
 
-gulp.task('default', function() {
+gulp.task('watch', function() {
     gulp.watch(pkg.paths.src.css, gulp.series('sass:development'));
     gulp.watch(pkg.paths.src.js, gulp.series('js:development'));
-    gulp.watch(pkg.paths.src.img, gulp.series('img:development'));
+    gulp.watch(pkg.paths.src.img, gulp.series('img'));
 });
-
 
 
 // DEVELOPMENT
@@ -74,5 +73,16 @@ gulp.task('woff', function() {
 
 
 // TASK RUNNERS
-gulp.task('default', gulp.series('purge','sass:development','js:development','img', 'woff'));
-gulp.task('build', gulp.series('purge','sass:production','js:production','img', 'woff'));
+gulp.task('default', gulp.parallel(
+    'sass:development',
+    'js:development',
+    'img', 
+    'woff',
+    'watch')
+);
+
+gulp.task('build', gulp.series(
+    'purge',
+    'img',
+    'woff')
+);
